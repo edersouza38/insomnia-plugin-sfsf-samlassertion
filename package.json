@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-samlassertion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Insomnia Plugin: SAML Assertion generator for SuccessFactors API's",
   "main": "app.js",
   "author": "Éder Souza <edersouza38@gmail.com|",
