@@ -1,0 +1,24 @@
+{
+  "name": "insomnia-plugin-samlassertion",
+  "version": "1.0.0",
+  "description": "SAML Assertion generator for SuccessFactors API's",
+  "main": "app.js",
+  "author": "Éder Souza",
+  "license": "ISC",
+  "insomnia": {
+    "name": "samlassertion",
+    "displayName": "SAML Assertion generator for SuccessFactors API's",
+    "description": "SAML Assertion generator to obtain OAuth tokens from SuccessFactors, as described in SAP Documentation https://help.sap.com/docs/SAP_SUCCESSFACTORS_PLATFORM/d599f15995d348a1b45ba5603e2aba9b/4e27e8f6ae2748ab9f23228dd6a31b06.html?locale=en-US. Based on the npm package \"saml\" from auth0.",
+    "images": {
+      "cover": "SFSFicon.svg"
+    },
+    "publisher": {
+      "name": "Éder Souza"
+    },
+    "unlisted": false
+  },
+  "dependencies": {
+    "saml": "^3.0.1",
+    "uuid": "^9.0.0"
+  }
+}
