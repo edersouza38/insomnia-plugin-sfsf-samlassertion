@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "SAML Assertion generator for SuccessFactors API's",
   "main": "app.js",
-  "author": "Éder Souza",
+  "author": "Éder Souza <edersouza38@gmail.com|",
   "license": "ISC",
   "insomnia": {
     "name": "samlassertion",
