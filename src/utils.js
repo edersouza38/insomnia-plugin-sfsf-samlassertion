@@ -7,7 +7,7 @@ module.exports = {
       if (v.length != 2 || v[0][2] !== v[1][2] || v[0][2] !== "PRIVATE") {
         throw 'Invalid PEM private key. Make sure that the armoring is consistent and the PEM key is from the type "PRIVATE".';
       }
-      return input;
+      return input.replace(/\r?\n|\r/g, '');
     }
 
     //Verify whether key was generated directly in SFSF:
@@ -27,7 +27,7 @@ module.exports = {
       if (v.length != 2 || v[0][2] !== v[1][2]) {
         throw "Invalid PEM certificate. Make sure that the armoring is consistent.";
       }
-      return input;
+      return input.replace(/\r?\n|\r/g, '');
     }
 
     //Verify whether key was generated directly in SFSF:
