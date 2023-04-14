@@ -38,10 +38,31 @@ module.exports = {
       placeholder: "OWE1Yzg0NTMyOGJlY2M4NWRiZGFiMGE3MTI5MA",
     },
     {
-      displayName: "Name Identifier",
-      description: "User Name",
+      displayName: "User Identifier",
+      description: "User Identifier",
       type: "string",
       placeholder: "Username",
+    },
+    {
+      displayName: "User Identifier Format",
+      description: "User Identifier Format",
+      type: "enum",
+      placeholder: "User Identifier Format",
+      defaultValue: utils.userIdentifierFormat.userId,
+      options: [
+        {
+          displayName: "User ID",
+          value: utils.userIdentifierFormat.userId
+        },
+        {
+          displayName: "Username",
+          value: utils.userIdentifierFormat.userName
+        },
+        {
+          displayName: "E-Mail",
+          value: utils.userIdentifierFormat.eMail
+        },
+      ],
     },
     {
       displayName: "OAuth Token Endpoint",
@@ -64,19 +85,37 @@ module.exports = {
     lifetime,
     clientId,
     nameId,
+    userIdentifierFormat,
     tokenEndpoint,
     audience
   ) {
-    var options = {
+    let samlAttributes = {
+      api_key: clientId
+    };
+
+    var nameIdentifierFormat =
+      "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified";
+
+    switch (userIdentifierFormat) {
+      case utils.userIdentifierFormat.eMail:
+        nameIdentifierFormat =
+          "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress";
+        break;
+      case utils.userIdentifierFormat.userName:
+        samlAttributes.use_username = "true";
+        break;
+      default:
+        break;
+    }
+    let options = {
       cert: utils.formatCertificate(cert),
       key: utils.formatPrivateKey(key),
       issuer: issuer,
       lifetimeInSeconds: lifetime,
       audiences: audience,
-      attributes: {
-        api_key: clientId,
-      },
+      attributes: samlAttributes,
       nameIdentifier: nameId,
+      nameIdentifierFormat: nameIdentifierFormat,
       recipient: tokenEndpoint,
       sessionIndex: "_" + uuid.v4(),
     };

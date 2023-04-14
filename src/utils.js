@@ -38,4 +38,10 @@ module.exports = {
     }
     return `-----BEGIN CERTIFICATE-----${input}-----END CERTIFICATE-----`;
   },
+
+  userIdentifierFormat: {
+    userId : "userId",
+    userName : "userName",
+    eMail : "e-Mail"
+  }
 };

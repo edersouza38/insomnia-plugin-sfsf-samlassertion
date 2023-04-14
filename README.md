@@ -10,12 +10,13 @@ After successfully installing the plugin, the [Template Tag](https://docs.insomn
 - *SAML Issuer*: Name of the IdP issuing the SAML Assertion. The proposed value _local.insomnia.com_ should be a good starting point.
 - *Lifetime in seconds*: Lifetime of the SAML Assertion in seconds.
 - *Client Id*: Registered Client Id in SAP SuccessFactors, also called as _API key_ in the SFSF Documentation.
-- *Name Identifier*: User ID to be used to access the SAP SuccessFactors API's.
+- *User Identifier*: User identifier to be used to access the SAP SuccessFactors API's.
+- *User Identifier Format*: Type of *User Identifier* informed for SAML assertion. It can be one of the three following types: *User ID*, *Username* or *E-Mail*. 
 - *OAuth Token Endpoint*: The URL of the API server from which you request the OAuth token.
 - *Audience*: Value used to tag the SAML assertion. The proposed value _www.successfactors.com_ should be a good starting point.
 
 Add the _Template Tag_ and configure it where the SAML assertion is required. The SAML Assertion will be generated and returned in the Base64 format.
 
-![Template Tag configuration 1](./assets/configEx1.png)
-
 ![Template Tag configuration 2](./assets/configEx2.png)
+
+![Template Tag configuration 1](./assets/configEx1.png)
