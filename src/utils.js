@@ -39,6 +39,10 @@ module.exports = {
     return `-----BEGIN CERTIFICATE-----${input}-----END CERTIFICATE-----`;
   },
 
+  delay: function(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  },
+
   userIdentifierFormat: {
     userId : "userId",
     userName : "userName",

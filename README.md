@@ -14,6 +14,7 @@ After successfully installing the plugin, the [Template Tag](https://docs.insomn
 - *User Identifier Format* *(Added on April/2023)*: Type of *User Identifier* informed for SAML assertion. It can be one of the three following types: *User ID*, *Username* or *E-Mail*. Check the blog [SAML assertions for SAP SuccessFactors OAuth 2.0 API’s: Handling of User Identifiers](https://blogs.sap.com/2023/04/18/saml-assertions-for-sap-successfactors-oauth-2.0-apis-handling-of-user-identifiers/) to better understand which of these options best suits your test needs.
 - *OAuth Token Endpoint*: The URL of the API server from which you request the OAuth token.
 - *Audience*: Value used to tag the SAML assertion. The proposed value _www.successfactors.com_ should be a good starting point.
+- *Delay (Seconds)*: Delays the handover of the SAML assertion to Insomnia runtime. Useful when errors like *"The SAML assertion has expired"* are observed, but actually the request is reaching the endpoint before the *validNotBefore* date from SAML assertion.
 
 Add the _Template Tag_ and configure it where the SAML assertion is required. The SAML Assertion will be generated and returned in the Base64 format.
 

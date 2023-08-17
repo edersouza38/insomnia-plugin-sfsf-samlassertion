@@ -76,6 +76,12 @@ module.exports = {
       type: "string",
       defaultValue: "www.successfactors.com",
     },
+    {
+      displayName: "Delay (Seconds)",
+      description: "Useful when the request is reaching the endpoint before the \"validNotBefore\" date from SAML assertion.",
+      type: "number",
+      defaultValue: 0,
+    },    
   ],
   async run(
     context,
@@ -87,7 +93,8 @@ module.exports = {
     nameId,
     userIdentifierFormat,
     tokenEndpoint,
-    audience
+    audience,
+    delay
   ) {
     let samlAttributes = {
       api_key: clientId
@@ -119,6 +126,11 @@ module.exports = {
       recipient: tokenEndpoint,
       sessionIndex: "_" + uuid.v4(),
     };
-    return Buffer.from(saml.create(options)).toString("base64");
+
+    var assertion = Buffer.from(saml.create(options)).toString("base64");
+    if(delay > 0) {      
+      await utils.delay(delay * 1000);
+    }
+    return assertion;
   },
 };
